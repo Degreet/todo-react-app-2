@@ -1,13 +1,101 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	height: 100vh;
+	background: #fafafa;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+#root {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.App {
+	width: 50%;
+	height: 60%;
+	background: #ffffff;
+	margin: auto;
+	padding: 20px;
+	border-radius: 5px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.App .title {
+	text-align: center;
+}
+
+.App .create-todo input {
+	background: #fff;
+	border-radius: 30px;
+	padding: 10px 20px;
+	margin-right: 10px;
+	border: none;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 20px 0px;
+	outline: none;
+	width: 50%;
+}
+
+.App .create-todo input:focus::placeholder {
+	opacity: 0;
+}
+
+.App .create-todo button {
+	background: #fafafa;
+	border-radius: 30px;
+	padding: 10px 20px;
+	border: none;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 10px 0px;
+	cursor: pointer;
+	transition: 0.3s;
+	outline: none;
+}
+
+.App .create-todo button:hover {
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 20px 0px;
+}
+
+.App .todo-list {
+	list-style-type: square;
+	width: 100%;
+}
+
+.App .todo-list .todo-item-wrapper::marker {
+	content: '▰   ';
+	color: #3c3ce2;
+	font-size: 18px;
+}
+
+.App .todo-list .todo-item-wrapper {
+	background: #fff;
+	padding: 10px;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 4px 10px 0px;
+	border-radius: 5px;
+	margin-top: 10px;
+	position: relative;
+}
+
+.App .todo-list .todo-item-wrapper input {
+	position: absolute;
+	top: 32%;
+	right: 15px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.App .todo-list .todo-item-wrapper.completed .title {
+	text-decoration: line-through;
 }
