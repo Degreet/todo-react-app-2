@@ -19,7 +19,7 @@ function App() {
 
 	function createTodo(title) {
 		const id = todos.length ? todos[todos.length - 1].id + 1 : 1;
-		save(todos.concat({ title, completed: false, id }));
+		save([{ title, completed: false, id }].concat(todos));
 	}
 
 	function setCompleted(id) {
