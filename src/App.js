@@ -6,14 +6,14 @@ function App() {
 	const [todos, setTodos] = React.useState([
 		{
 			id: 1,
-			title: 'Hello',
+			title: 'Loading...',
 			completed: false,
 		},
 	]);
 
 	React.useEffect(() => {
 		if (localStorage.todos) {
-			setTodos(JSON.parse(localStorage.todos));
+			save(JSON.parse(localStorage.todos));
 		}
 	}, [setTodos]);
 
@@ -42,8 +42,11 @@ function App() {
 	}
 
 	function save(result) {
-		setTodos(result);
-		localStorage.todos = JSON.stringify(result);
+		const res = result.length
+			? result
+			: [{ id: 1, title: 'Создайте первую задачу...', completed: false }];
+		setTodos(res);
+		localStorage.todos = JSON.stringify(res);
 	}
 
 	return (
