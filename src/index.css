@@ -87,13 +87,26 @@ code {
 
 .App .todo-list .todo-item-wrapper input {
 	position: absolute;
-	top: 32%;
-	right: 15px;
+	top: 33%;
+	right: 60px;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.App .todo-list .todo-item-wrapper .remove-todo {
+	position: absolute;
+	right: 15px;
+	border: none;
+	background: transparent;
+	top: 0;
+	bottom: 0;
+	font-size: 30px;
+	color: red;
+	cursor: pointer;
+	outline: none;
 }
 
 .App .todo-list .todo-item-wrapper.completed .title {

@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-function TodoItems({ todos, setCompleted }) {
+function TodoItems({ todos, setCompleted, removeTodo }) {
 	return (
 		<ul className="todo-list">
 			{todos.map((todo, i) => (
@@ -11,6 +11,7 @@ function TodoItems({ todos, setCompleted }) {
 					title={todo.title}
 					completed={todo.completed}
 					id={todo.id}
+					removeTodo={removeTodo}
 				/>
 			))}
 		</ul>

@@ -11,13 +11,19 @@ function App() {
 		},
 	]);
 
+	React.useEffect(() => {
+		if (localStorage.todos) {
+			setTodos(JSON.parse(localStorage.todos));
+		}
+	}, [setTodos]);
+
 	function createTodo(title) {
-		const id = todos[todos.length - 1].id + 1;
-		setTodos(todos.concat({ title, completed: false, id }));
+		const id = todos.length ? todos[todos.length - 1].id + 1 : 1;
+		save(todos.concat({ title, completed: false, id }));
 	}
 
 	function setCompleted(id) {
-		setTodos(
+		save(
 			todos.map((todo) => {
 				if (todo.id === id) {
 					return {
@@ -31,11 +37,24 @@ function App() {
 		);
 	}
 
+	function removeTodo(id) {
+		save(todos.filter((todo) => todo.id !== id));
+	}
+
+	function save(result) {
+		setTodos(result);
+		localStorage.todos = JSON.stringify(result);
+	}
+
 	return (
 		<div className="App">
 			<h1 className="title">Todo List</h1>
 			<TodoInput createTodo={createTodo} />
-			<TodoItems todos={todos} setCompleted={setCompleted} />
+			<TodoItems
+				removeTodo={removeTodo}
+				todos={todos}
+				setCompleted={setCompleted}
+			/>
 		</div>
 	);
 }
