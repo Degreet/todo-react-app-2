@@ -6,7 +6,7 @@ function App() {
 	const [todos, setTodos] = React.useState([
 		{
 			id: 1,
-			title: 'Loading...',
+			title: 'Загрузка...',
 			completed: false,
 		},
 	]);
