@@ -15,7 +15,11 @@ function TodoItem({ id, title, completed, setCompleted, removeTodo }) {
 
 	return (
 		<li className={classes}>
-			<input type="checkbox" onChange={setCompletedHandler} />
+			<input
+				type="checkbox"
+				onChange={setCompletedHandler}
+				checked={completed}
+			/>
 			<button className="remove-todo" onClick={removeTodoHandler}>
 				&times;
 			</button>
