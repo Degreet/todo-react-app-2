@@ -18,8 +18,10 @@ function App() {
 	}, [setTodos]);
 
 	function createTodo(title) {
-		const id = todos.length ? todos[todos.length - 1].id + 1 : 1;
-		save([{ title, completed: false, id }].concat(todos));
+		if (title) {
+			const id = todos.length ? todos[todos.length - 1].id + 1 : 1;
+			save([{ title, completed: false, id }].concat(todos));
+		}
 	}
 
 	function setCompleted(id) {
